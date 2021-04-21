@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+    <br>
+    <div class="alert alert-warning" role="alert">
+      <p>Warning! This app is not optimised for Heroku, and you might have trouble staying logged in.</p>
+      <p>Please visit my <a style="text-decoration: none;" href="https://github.com/zeeyang93/finance">Github </a> and follow the instructions to use this app with flask.</p>
+    </div>
+{% endblock %}
