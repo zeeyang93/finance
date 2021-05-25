@@ -45,8 +45,8 @@ db = SQL("sqlite:///finance.db")
 # db = SQL(uri)
 
 # Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
+# if not os.environ.get("API_KEY"):
+#     raise RuntimeError("API_KEY not set")
 
 
 @app.route("/")
@@ -376,3 +376,7 @@ def errorhandler(e):
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

@@ -1,3 +1,4 @@
+from webconfig import API_KEY
 import os
 import requests
 import urllib.parse
@@ -40,7 +41,8 @@ def lookup(symbol):
 
     # Contact API
     try:
-        api_key = os.environ.get("API_KEY")
+        api_key = API_KEY
+        # api_key = os.environ.get("API_KEY")
         url = f"https://cloud.iexapis.com/stable/stock/{urllib.parse.quote_plus(symbol)}/quote?token={api_key}"
         response = requests.get(url)
         response.raise_for_status()
